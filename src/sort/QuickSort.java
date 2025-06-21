@@ -5,12 +5,12 @@ public class QuickSort {
     public static int pivot;
 
     public static void main(String[] args) {
-        arr = new int[] {31, 8, 48, 73, 11, 3, 20, 29, 65, 15};
+        arr = new int[]{31, 8, 48, 73, 11, 3, 20, 29, 65, 15};
 
         System.out.println("기존 배열: ");
         printArray(arr);
 
-        sort(0, arr.length-1);
+        sort(0, arr.length - 1);
 
         System.out.println("정렬 후 배열: ");
         printArray(arr);
@@ -19,7 +19,7 @@ public class QuickSort {
     // 배열 출력
     private static void printArray(int[] arr) {
         StringBuilder sb = new StringBuilder();
-        for(int i: arr) {
+        for (int i : arr) {
             sb.append(i).append(" ");
         }
         System.out.println(sb);
@@ -27,14 +27,14 @@ public class QuickSort {
 
     // 정렬
     private static void sort(int start, int end) {
-        if (end - start <= 1) { // 분할된 배열의 크기가 1 이하면 재귀 종료
+        if (start >= end) { // 분할된 배열의 시작 인덱스가 끝 인덱스보다 크거나 같으면 재귀 종료
             return;
         }
 
         int index = partition(start, end); // pivot 의 인덱스
 
         sort(start, index - 1); // pivot 을 기준으로 왼쪽 배열 정렬
-        sort(index, end); // pivot 을 기존으로 오른쪽 배열 정렬
+        sort(index + 1, end); // pivot 을 기존으로 오른쪽 배열 정렬
     }
 
     private static int partition(int start, int end) {
