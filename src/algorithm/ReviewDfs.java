@@ -19,6 +19,7 @@ public class ReviewDfs {
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
         visited = new boolean[n+1]; // 노드 번호는 1부터 시작하기 때문에 n+1을 넣는다.
+        graph = new ArrayList[n+1];
         for (int i=1; i<n+1; i++) {
             graph[i] = new ArrayList<>(); // 인접 리스트 초기화
         }
